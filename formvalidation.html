@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Formvalidation using JavaScript</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+
+</head>
+<body>
+
+<h1 style="background-color: #637a91;text-align: center;">Get Started Today</h1>
+
+  <div class="container"><br>
+    
+    <div class="col-lg-6 m-auto d-block">
+      
+      <form action="#" onsubmit="return validation()" class="bg-light">
+        
+        <div class="form-group">
+          <label for="user" class="font-weight-bold"> FirstName: </label>
+          <input type="text" name="user" class="form-control" id="user" autocomplete="off">
+          <span id="username" class="text-danger font-weight-bold"> </span>
+        </div>
+
+        <div class="form-group">
+          <label for="user" class="font-weight-bold"> LastName </label>
+          <input type="text" name="user" class="form-control" id="user2" autocomplete="off">
+          <span id="username2" class="text-danger font-weight-bold"> </span>
+        </div>
+
+         <div class="form-group">
+          <label class="font-weight-bold"> Email: </label>
+          <input type="text" name="email" class="form-control" id="emails" autocomplete="off">
+          <span id="emailids" class="text-danger font-weight-bold"> </span>
+        </div>
+
+        <div class="form-group">
+          <label class="font-weight-bold"> Password: </label>
+          <input type="text" name="pass" class="form-control" id="pass" autocomplete="off">
+          <span id="passwords" class="text-danger font-weight-bold"> </span>
+        </div>
+
+        <br><input type="submit" name="submit" value="Claim your free trail" class="btn btn-success" style="width: 100%" autocomplete="off">
+
+        <p>You are Agreeing to our <a href="#">Terms and Services</a></p>
+
+
+      </form><br><br>
+
+
+    </div>
+  </div>
+
+
+
+  <script>
+    
+
+    function validation(){
+
+      var user = document.getElementById('user').value;
+      var user2 = document.getElementById('user2').value;
+      var pass = document.getElementById('pass').value;
+      var emails = document.getElementById('emails').value;
+
+
+
+
+/*--------firstName-----*/
+      if(user == ""){
+        document.getElementById('username').innerHTML =" ** Please fill the FirstName field";
+        return false;
+      }
+     
+      if(!isNaN(user)){
+        document.getElementById('username').innerHTML =" ** only characters are allowed";
+        return false;
+      }
+/*--------LastName-----*/
+
+       if(user2 == ""){
+        document.getElementById('username2').innerHTML =" ** Please fill the LastName field";
+        return false;
+      }
+     
+      
+      if(!isNaN(user2)){
+        document.getElementById('username2').innerHTML =" ** only characters are allowed";
+        return false;
+      }
+
+
+/*--------password-----*/
+
+      if(pass == ""){
+        document.getElementById('passwords').innerHTML =" ** Please fill the password field";
+        return false;
+      }
+      if((pass.length <= 8)) {
+        document.getElementById('passwords').innerHTML =" ** Passwords lenght must be between  5 and 20";
+        return false; 
+      }
+
+/*--------Email-----*/
+      if(emails == ""){
+        document.getElementById('emailids').innerHTML =" ** Please fill the email idx` field";
+        return false;
+      }
+      if(emails.indexOf('@') <= 0 ){
+        document.getElementById('emailids').innerHTML =" ** @ Invalid Position";
+        return false;
+      }
+
+      if((emails.charAt(emails.length-4)!='.') && (emails.charAt(emails.length-3)!='.')){
+        document.getElementById('emailids').innerHTML =" ** . Invalid Position";
+        return false;
+      }
+    
+}
+  </script>
+
+</body>
+</html>
